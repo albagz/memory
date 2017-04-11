@@ -1,168 +1,753 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
+
+<!DOCTYPE html><html class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/dtab428/pen/yYJKma" />
+<meta name="viewport" content="width=device-width">
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100'><link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body {
+  font-family: "Raleway";
+}
+
+html, body, ul, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h3,
+h5, p {
+  font-weight: 100;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.centerWrap {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0;
+  text-align: center;
+}
+
+.centerWrap:before,
+.centerWrap:after,
+.tabs:before,
+.tabs:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.panelImg {
+  max-width: 100%;
+  margin: 25px 0 0 0;
+}
+
+.titleWrap {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  color: #fff;
+  padding: 0 25px;
+  max-width: 1170px;
+}
+
+.gradientWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: .3s;
+  -ms-transition: .3s;
+  transition: .3s;
+  z-index: 0;
+}
+
+.halfScreen {
+  vertical-align: top;
+  position: relative;
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.gradientWrap.active {
+  opacity: 1;
+}
+
+.contentPanel {
+  position: relative;
+  display: none;
+  width: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.contentPanel.is-animating {
+  opacity: 0;
+}
+
+.contentPanel.active {
+  display: block;
+}
+
+@-webkit-keyframes animate-in-from-top {
+  0% {
+    top: 30px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animate-in-from-top {
+  0% {
+    top: 30px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animate-in-from-left {
+  0% {
+    left: 30px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animate-in-from-left {
+  0% {
+    left: 30px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+.contentPanel .panelTitle,
+.contentPanel .panelDesc {
+  text-align: center;
+  color: #fff;
+}
+
+.contentPanel .panelDesc {
+  margin-top: 20px;
+}
+
+.boxNum {
+  font-size: 40px;
+  margin: 0 0 10px 0;
+}
+
+.contentPanel {
+  text-align: center;
+}
+
+.vCenter {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tabsWrap {
+  position: relative;
+  padding: 80px 0;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tabs {
+  text-align: right;
+  vertical-align: top;
+  max-width: 463px;
+}
+
+.tabs li {
+  display: table;
+  float: left;
+  margin: 2px;
+  list-style-type: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  position: relative;
+  color: #fff;
+  font-size: 11px;
+  line-height: 15px;
+  text-transform: uppercase;
+  -webkit-transition: .3s;
+  -ms-transition: .3s;
+  transition: .3s;
+}
+
+.tabs li:hover {
+  color: #000;
+  background: #fff;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+}
+
+.tabs li.active {
+  color: #000;
+  background: #fff;
+}
+
+.tabs li.active.brown {
+  color: #603813;
+}
+
+.tabs li.active.blue {
+  color: #000046;
+}
+
+.tabs li.active.mars {
+  color: #0B486B;
+}
+
+.tabs li.active.pink {
+  color: #D0646A;
+}
+
+.tabs li.active.purple {
+  color: #524E64;
+}
+
+.tabs li.active.teal {
+  color: #3D899C;
+}
+
+.tabs li.active.lightpurple {
+  color: #6866E7;
+}
+
+.tabs li.active.purplegray {
+  color: #7B7980;
+}
+
+.tabs li.active.greengray {
+  color: #89887C;
+}
+
+.tabs li.active.tealgreen {
+  color: #357168;
+}
+
+.textContent {
+  position: relative;
+  top: 15px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.brown {
+  background: #603813;
+  background: linear-gradient(135deg, #b29f94 0%, #b29f94 100%);
+}
+
+.blue {
+  background: #000046;
+  background: linear-gradient(135deg, #000046 0%, #1CB5E0 100%);
+}
+
+.mars {
+  background: #0B486B;
+  background: linear-gradient(135deg, #F56217 1%, #A43931 100%);
+}
+
+.green {
+  background: #5A3F37;
+  background: linear-gradient(135deg, #2C7744 1%, #7B920A 100%);
+}
+
+.darkpurple {
+  background: #908ba9;
+  background: linear-gradient(135deg, #908ba9 0%, #272435 100%);
+}
+
+.teal {
+  background: #85d8ce;
+  background: linear-gradient(135deg, #85d8ce 0%, #11597e 100%);
+}
+
+.purple {
+  background: #8d54e8;
+  background: linear-gradient(135deg, #8d54e8 0%, #4c74e6 100%);
+}
+
+.tealpurple {
+  background: #a7c9b9;
+  background: linear-gradient(135deg, #a7c9b9 0%, #624a5e 100%);
+}
+
+.bluepurple {
+  background: #3f8098;
+  background: linear-gradient(135deg, #3f8098 0%, #5a2c8e 100%);
+}
+
+/* Animation */
+h5 span,
+p span {
+  display: block;
+}
+
+h5 > span,
+p > span {
+  overflow: hidden;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+h5 > span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+p > span:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+h5 > span > span
+ {
+  position: relative;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  animation: inherit;
+  display: block;
+  font-weight:700;
+}
+p > span > span {
+  position: relative;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  animation: inherit;
+  display: block;
+  font-weight:200;
+}
+.active h5 > span > span,
+.active p > span > span {
+  animation-name: slide-up;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+  }
+}
+/* Mobile Arrows */
+.mobile-arrows {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: start;
+  bottom: 0;
+  margin: auto;
+  height: 20px;
+  display: none;
+}
+
+.mobile-arrows > div {
+  position: absolute;
+  font-family: "FontAwesome";
+  cursor: pointer;
+}
+
+.mobile-arrows > div:before {
+  font-size: 30px;
+  color: #fff;
+}
+
+.mobile-arrows .arrow-left {
+  left: 0;
+}
+
+.mobile-arrows .arrow-left:before {
+  content: "\f177";
+}
+
+.mobile-arrows .arrow-right {
+  right: 0;
+}
+
+.mobile-arrows .arrow-right:before {
+  content: "\f178";
+}
+
+@media (min-width: 1171px) {
+  .exploreMore {
+    text-align: right;
+  }
+
+  .tabs {
+    margin: 0 0 0 auto;
+  }
+
+  .halfScreen {
+    width: 50%;
+    float: left;
+  }
+
+  .contentPanel {
+    top: 0;
+    -webkit-animation: animate-in-from-top .3s;
+    animation: animate-in-from-top .3s;
+  }
+
+  .contentPanel.is-animating {
+    top: -30px;
+  }
+}
+@media (max-width: 1170px) {
+  .halfScreen.tabsRight {
+    display: none;
+  }
+
+  .mobile-arrows {
+    display: block;
+  }
+
+  .tabs {
+    margin: 0 auto;
+  }
+
+  .contentPanel {
+    max-width: calc(100% - 120px);
+    margin: 0 auto;
+  }
+
+  .contentPanel {
+    left: 0;
+    -webkit-animation: animate-in-from-left .3s;
+    animation: animate-in-from-left .3s;
+  }
+
+  .contentPanel.is-animating {
+    left: -30px;
+  }
+}
+button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+body {
+  background: #111;
+}
+
+button {
+  background: #333;
+  color: #ccc;
+  width: 200px;
+  height: 60px;
+  border: 0;
+  font-size: 18px;
+  border-radius: 4px;
+  font-family: 'Raleway', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  margin-top: 230px;
+}
+button:focus {
+  outline: 0;
+}
+button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+button:hover {
+  background: #338033;
+  cursor: pointer;
+}
+button:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+button:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+</style></head><body>
+<div class="tabsWrap">
+  <div class="titleWrap">
+    <h3><span><span>T O D A Y</span></span> <span><span>news</span></span></h3>
+    <div class="exploreMore"><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/509737-200.png" ></div>
+  </div>
+  <div class="gradientWrap brown active"></div>
+  <div class="gradientWrap blue"></div>
+  <div class="gradientWrap mars"></div>
+  <div class="gradientWrap green"></div>
+  <div class="gradientWrap darkpurple"></div>
+  <div class="gradientWrap teal"></div>
+  <div class="gradientWrap purple"></div>
+  <div class="gradientWrap tealpurple"></div>
+  <div class="gradientWrap bluepurple"></div>
+  <div class="centerWrap">
+    <div class="halfScreen contentLeft">
+      <div class="contentPanel active">
+        <h5 class="panelTitle"><span><span>Trump ban is banned</span></span></h5>
+        <p class="panelDesc"><span><span>Enraged congress - stop Trumps attempt to ban certain countries from being allowed in the U.S.</span></span></p>
+        <img class="panelImg" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Trump_Transparent.svg">
+      </div>
+      <button> M o r e</button>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Article 50 triggered</span></span></h5>
+        <p class="panelDesc"><span><span>Theresa May has triggered Article 50 - the whole of the UK holds its breath</span></span></p>
+        <img class="panelImg" src="https://upload.wikimedia.org/wikipedia/commons/9/93/European_stars.svg">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Probe lands on Mars</span></span></h5>
+        <p class="panelDesc"><span><span>Viking 2 has landed on Mars - after 8 years of travel it has sent stunning pictures</span></span></p>
+        <img class="panelImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/290px-NASA_logo.svg.png">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Gorrila &amp; Rhino escape</span></span></h5>
+        <p class="panelDesc"><span><span>A gorilla and rhino escape from Woodland Park Zoo</span></span></p>
+        <img class="panelImg" src="http://www.seattlecidercompany.com/wp-content/uploads/2013/09/250px-Woodland_Park_Zoo.svg_.png">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Southampton F.C. in administration</span></span></h5>
+        <p class="panelDesc"><span><span>Harry Redknapp comes back to bite Southampton</span></span></p>
+        <img class="panelImg" src="https://upload.wikimedia.org/wikipedia/en/2/2a/Saints_logo_2010.PNG">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Infographic Analytics</span></span></h5>
+        <p class="panelDesc"><span><span>Powerful stats presented in an easy-to-understand way</span></span></p>
+        <img class="panelImg" src="https://d3ciwvs59ifrt8.cloudfront.net/bff7ce40-deb6-47aa-8388-60c61ba073f5/105c75c8-c07a-47fd-a1c7-c75118581697_m.png">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Social Wall</span></span></h5>
+        <p class="panelDesc"><span><span>Showcase your social media activity directly on your website</span></span></p>
+        <img class="panelImg" src="https://d3ciwvs59ifrt8.cloudfront.net/bff7ce40-deb6-47aa-8388-60c61ba073f5/726ba0f8-57c3-4b5e-86b9-cea8755464cf_h.png">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>Mobile-Responsive Website</span></span></h5>
+        <p class="panelDesc"><span><span>Displays seamlessly on every device - desktop, tablet and mobile</span></span></p>
+        <img class="panelImg" src="https://d3ciwvs59ifrt8.cloudfront.net/bff7ce40-deb6-47aa-8388-60c61ba073f5/ca9e8452-6b9d-4c36-bd04-4a69bd15d95d.png">
+      </div>
+      <div class="contentPanel">
+        <h5 class="panelTitle"><span><span>E-Commerce</span></span></h5>
+        <p class="panelDesc"><span><span>We make it easy to sell on your site, Facebook &amp; mobile</span></span></p>
+        <img class="panelImg" src="https://d3ciwvs59ifrt8.cloudfront.net/bff7ce40-deb6-47aa-8388-60c61ba073f5/39355fd1-1a56-4676-9923-39582564bd75.png">
+      </div>
+      <div class="mobile-arrows">
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="callout">
-          <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-          <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-          <p>Once you've exhausted the fun in this document, you should check out:</p>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br />Join the Foundation community to ask a question or show off your knowlege.</p>
-            </div>
+    <div class="halfScreen tabsRight">
+      <ul class="tabs">
+        <li class="brown active">
+          <div class="vCenter">
+<div class="boxNum one">1</div>
+<div class="textContent">Trump
+  <br>Ban
+</div>
           </div>
-          <div class="row">
-            <div class="large-4 medium-4 medium-push-2 columns">
-              <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-            </div>
-            <div class="large-4 medium-4 medium-pull-2 columns">
-              <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-            </div>        
+        </li>
+        <li class="blue">
+          <div class="vCenter">
+<div class="boxNum two">2</div>
+<div class="textContent">Article
+  <br>50
+</div>
           </div>
-        </div>
-      </div>
+        </li>
+        <li class="mars">
+          <div class="vCenter">
+<div class="boxNum three">3</div>
+<div class="textContent">Mars
+  <br>Probe
+</div>
+          </div>
+        </li>
+        <li class="green">
+          <div class="vCenter">
+<div class="boxNum four">4</div>
+<div class="textContent">Zoo
+  <br>Escape
+</div>
+          </div>
+        </li>
+        <li class="purple">
+          <div class="vCenter">
+<div class="boxNum five">5</div>
+<div class="textContent">Social Publishing
+  <br>Tool
+</div>
+          </div>
+        </li>
+        <li class="teal">
+          <div class="vCenter">
+<div class="boxNum six">6</div>
+<div class="textContent">Infographic
+  <br>Analytics
+</div>
+          </div>
+        </li>
+        <li class="lightpurple">
+          <div class="vCenter">
+<div class="boxNum seven">7</div>
+<div class="textContent">Social
+  <br>Wall
+</div>
+          </div>
+        </li>
+        <li class="purplegray">
+          <div class="vCenter">
+<div class="boxNum eight">8</div>
+<div class="textContent">Mobile-Responsive
+  <br>Website
+</div>
+          </div>
+        </li>
+        <li class="purple">
+          <div class="vCenter">
+<div class="boxNum nine">9</div>
+<div class="textContent">E-commerce</div>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>  $(document).ready(function() {
 
-    <div class="row">
-      <div class="large-8 medium-8 columns">
-        <h5>Here&rsquo;s your basic grid:</h5>
-        <!-- Grid Example -->
+    var tabsModule = {
 
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="primary callout">
-              <p><strong>This is a twelve column section in a row.</strong> Each of these includes a div.callout element so you can see where the columns are - it's not required at all for the grid.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 columns">
-            <div class="primary callout">
-              <p>Six columns</p>
-            </div>
-          </div>
-          <div class="large-6 medium-6 columns">
-            <div class="primary callout">
-              <p>Six columns</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="primary callout">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="primary callout">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="primary callout">
-              <p>Four columns</p>
-            </div>
-          </div>
-        </div>
-        
-        <hr />
-                
-        <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-        <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-12.columns" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label>Input Label</label>
-                <div class="input-group">
-                  <input type="text" placeholder="small-9.columns" class="input-group-field" />
-                  <span class="input-group-label">.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select Box</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 medium-6 columns">
-              <label>Choose Your Favorite</label>
-              <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
-            </div>
-            <div class="large-6 medium-6 columns">
-              <label>Check these out</label>
-              <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-              <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Textarea Label</label>
-              <textarea placeholder="small-12.columns"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>     
+      config: {
+        "currentSlide": 0,
+        "numSlides": $(".contentPanel").length,
+        "module": $(".tabsWrap"),
+        "listBtn": $(".tabs li"),
+        "content": $(".contentPanel"),
+        "gradient": $(".gradientWrap"),
+        "closeContent": $(".closeContent"),
+        "mobileArrowLeft": $(".mobile-arrows .arrow-left"),
+        "mobileArrowRight": $(".mobile-arrows .arrow-right")
+      },
 
-      <div class="large-4 medium-4 columns">
-        <h5>Try one of these buttons:</h5>
-        <p><a href="#" class="button">Simple Button</a><br/>       
-        <a href="#" class="success button">Success Btn</a><br/>
-        <a href="#" class="alert button">Alert Btn</a><br/>
-        <a href="#" class="secondary button">Secondary Btn</a></p>           
-        <div class="callout">
-          <h5>So many components, girl!</h5>
-          <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-          <a href="http://foundation.zurb.com/sites/docs/" class="small button">Go to Foundation Docs</a>          
-        </div>
-      </div>
-    </div>
+      // debounce
+      debounce: function(fn, delay) {
+        var timer = null;
+        return function() {
+          var context = this,
+            args = arguments;
+          clearTimeout(timer);
+          timer = setTimeout(function() {
+            fn.apply(context, args);
+          }, delay);
+        };
+      },
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/what-input/dist/what-input.js"></script>
-    <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-</html>
+      animate: function() {
+        tabsModule.config.module.find(".contentPanel.active").addClass("is-animating");
+        setTimeout(function() {
+          tabsModule.config.content.removeClass("is-animating active");
+          tabsModule.config.content.eq(tabsModule.config.currentSlide).addClass("active");
+        }, 300);
+      },
+
+      clickTab: function() {
+
+        tabsModule.config.listBtn.on("click", tabsModule.debounce(function(event) {
+
+          // Active Tab State
+          tabsModule.config.listBtn.not(this).toggleClass("active", false);
+          $(this).toggleClass("active", true);
+
+          tabsModule.config.currentSlide = $(this).index();
+
+          // Active Content Panel State
+
+          tabsModule.animate();
+
+          // Active Gradient State
+          tabsModule.config.gradient.removeClass("active");
+          tabsModule.config.gradient.eq(tabsModule.config.currentSlide).addClass("active");
+
+        }, 300));
+      },
+
+      clickMobileArrow: function() {
+
+        tabsModule.config.mobileArrowLeft.on("click", tabsModule.debounce(function(event) {
+          if (tabsModule.config.currentSlide <= tabsModule.config.numSlides - 1 && tabsModule.config.currentSlide > 0) {
+            tabsModule.config.currentSlide--;
+            tabsModule.animate();
+          }
+        }, 300));
+
+        tabsModule.config.mobileArrowRight.on("click", tabsModule.debounce(function(event) {
+          if (tabsModule.config.currentSlide < tabsModule.config.numSlides - 1 && tabsModule.config.currentSlide >= 0) {
+            tabsModule.config.currentSlide++;
+            tabsModule.animate();
+          }
+        }, 300));
+      }
+
+    }
+
+    tabsModule.clickTab();
+    tabsModule.clickMobileArrow();
+
+  });
+//# sourceURL=pen.js
+</script>
+</body></html>
